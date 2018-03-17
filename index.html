@@ -5,36 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mad Men Trivia Game</title>
+
+<!--CSS, GOOGLE FONTS & BOOTSTRAP LINKS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed" rel="stylesheet">
 </head>
 
+<!--CONTAINER-->
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1><img src="assets/images/header.png" alt="Mad Men Trivia Game Header"></h1>
-        
-            <div id="timerStarts"><h2>Time Remaining:</h2></div>
-                <p><a class="btn btn-default btn-lg gameStart" href="#" role="button">Start</a></p>
-                
+
+<!--HEADER IMAGE-->
+            <header><img src="assets/images/header.png" alt="Mad Men Trivia Game " class="img-responsive"></header>
+
+<!--TIMER-->
+            <div id="timeLeft"><h2>Time Left: </h2></div>
+
+<!--START BUTTON-->
+            <p><a class="btn btn-default btn-lg gameStart" href="#" role="button">Start Game</a></p>
             <div id="showQuestions"></div>
-            <div class="btn btn-default btn-lg submitAnswer" href="#" role="button">Submit</div>
+
+<!--SUBMIT BUTTON-->
+            <div class="btn btn-default btn-lg submitAnswer" href="#" role="button">Submit Answers</div>
             <div id="checkAnswers"></div>
             <div id="showResults">
-                    
-            <div id="correctAnswers"> Correct Answers: </div> 
-            <div id="incorrectAnswers"> Incorrect Answers: </div>
-            </div>
-            <div class="btn btn-default btn-lg gameReset" href="#" role="button">Play Again</div>
-            </div>
+
+<!--SCORE COUNTER-->
+            <div id="correctAnswers">Correct Answers:</div> 
+            <div id="incorrectAnswers">Incorrect Answers:</div>
         </div>
+
+<!--RESET BUTTON-->
+            <div class="btn btn-default btn-lg resetButton" href="#" role="button">Play Again</div>
+        </div>
+    </div>
+
     
-    
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
-    </body>
-    </html>
+<!--JAVASCRIPT & BOOTSTRAP LINKS-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>
     

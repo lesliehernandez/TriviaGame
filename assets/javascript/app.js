@@ -1,3 +1,4 @@
+//ARRAY OF QUESTIONS
 var questions = [{
 	question: "What is Don Draper's real name??",
 	choices: ["Dirk Woodward", "Dick Whitman", "Dave Workman", "Don Draper"],
@@ -35,24 +36,26 @@ var questions = [{
 	choices: ["The Carousel", "The Elevator", "The Computer", "The Suburbs"],
 	correctAnswer: "The Carousel",
 }, {
-	question: "What year does Mad Men start?",
-	choices: ["1959", "1960", "1961", "1962"],
+	question: "What year is it when the show begins?:",
+	choices: ["1959", "1960", "1061", "1962"],
 	correctAnswer: "1960",
 }];
 
-
+//SET VARIABLES
 var currentQuestion = 0;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 
 
-
-$("#timerStarts").hide();
+//HIDE DIVS
+$("#timeLeft").hide();
 $(".submitAnswer").hide();
-$(".gameReset").hide();
+$(".resetButton").hide();
 $("#correctAnswers").hide();
 $("#incorrectAnswers").hide();
 
+
+//IF ELSE STATEMENT TO CHECK IF ANSWER IF CORRECT
 function checkAnswer () { 
 	for (var i = 0; i < questions.length; i++) {
 		var userChoice = $("input[name = 'question-" + i +"']:checked");
@@ -68,17 +71,17 @@ function checkAnswer () {
 	$("#incorrectAnswers").append(" " + incorrectAnswers); 
 };
 
-
+//CREATE COUNTDOWN TIMER
 function timer() {
 	var seconds = 60;
 	counter = setInterval (function() {
-	$("#timerStarts").html('<h2> Time Remaining:' + seconds-- + '</h2>');
+	$("#timeLeft").html('<h2>Time Left: ' + seconds-- +' Seconds</h2>');
 		if (seconds === -1) {
-			$("#timerStarts").html("<h2> Out of Time! </h2>");
+			$("#timeLeft").html("<h2>Game Over</h2>");
 			clearInterval(counter);
 			function delayScore(){
 				$("#showQuestions").hide();
-				$("#timerStarts").hide();
+				$("#timeLeft").hide();
 				$(".submitAnswer").hide();
 				checkAnswer();
 				$("#correctAnswers").show();
@@ -90,32 +93,45 @@ function timer() {
 	
 };
 
+//LISTEN FOR CLICK TO BEGIN GAME
 $(".gameStart").on("click", function() {
 	$(".gameStart").hide();
 	displayCurrentQuestion();
-	$("#timerStarts").show();
+	$("#timeLeft").show();
 	timer();
 
 
 });
 
+//DISPLAY QUESTIONS & ANSWERS
 function displayCurrentQuestion() {
 	$(".submitAnswer").show();
 	for (var i = 0; i < questions.length; i++) {
-		$("#showQuestions").append("<h3>" + questions[i].question + "</h3");
-		for (var j = 0; j < questions[i].choices.length; j++) {
-			$("#showQuestions").append('<input type="radio" name="question'  + '-' + i + '" value="'+ questions[i].choices[j] + '"> '+ questions[i].choices[j] );
+		$("#showQuestions").append("<h3>" + questions[i].question + "</h3><br>");
+		for (var a = 0; a < questions[i].choices.length; a++) {
+			$("#showQuestions").append('<input type="radio" name="question'  + '-' + i + '" value="'+ questions[i].choices[a] +'"> '+ questions[i].choices[a] + "<br>");
 
 		}
 	}
+
+//DISPLAY SCORE ON SUBMIT
 	$(".submitAnswer").on("click", function() {
 		$("#showQuestions").hide();
-		$("#timerStarts").hide();
+		$("#timeLeft").hide();
 		$(".submitAnswer").hide();
 		checkAnswer();
 		clearInterval(counter);
 		$("#correctAnswers").show();
 		$("#incorrectAnswers").show();
+		$(".resetButton").show();
 
+	});
+
+//RESET GAME
+	$(".resetButton").on("click", function() {
+		$(".resetButton").hide();
+		location.reload();
+	
+	
 	});
 };
