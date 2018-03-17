@@ -45,7 +45,7 @@ var questions = [{
 var currentQuestion = 0;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
-var themeSound = new Audio("assets/sounds/madmentheme.mp3");
+var themeSound = new Audio("assets/sounds/madmentheme.mp3" );
 
 
 //HIDE DIVS
@@ -98,6 +98,10 @@ function timer() {
 $(".gameStart").on("click", function() {
 	$(".gameStart").hide();
 	displayCurrentQuestion();
+	themeSound.addEventListener('ended', function() {
+		this.currentTime = 0;
+		this.play();
+	}, false);
 	themeSound.play();
 	$("#timeLeft").show();
 	timer();
@@ -133,6 +137,10 @@ function displayCurrentQuestion() {
 	$(".resetButton").on("click", function() {
 		$(".resetButton").hide();
 		location.reload();
+		themeSound.addEventListener('ended', function() {
+			this.currentTime = 0;
+			this.play();
+		}, false);
 		themeSound.play();
 	
 	
