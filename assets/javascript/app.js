@@ -54,6 +54,7 @@ $(".submitAnswer").hide();
 $(".resetButton").hide();
 $("#correctAnswers").hide();
 $("#incorrectAnswers").hide();
+$("#endImage").hide();
 
 
 //IF ELSE STATEMENT TO CHECK IF ANSWER IF CORRECT
@@ -77,7 +78,7 @@ function timer() {
 	var seconds = 60;
 	counter = setInterval (function() {
 	$("#timeLeft").html('<h2>Time Left: ' + seconds-- +' Seconds</h2>');
-		if (seconds === -1) {
+		if (seconds === 0) {
 			$("#timeLeft").html("<h2>Game Over</h2>");
 			clearInterval(counter);
 			function delayScore(){
@@ -125,11 +126,13 @@ function displayCurrentQuestion() {
 		$("#showQuestions").hide();
 		$("#timeLeft").hide();
 		$(".submitAnswer").hide();
+		$("#endImage").show();
 		checkAnswer();
 		clearInterval(counter);
 		$("#correctAnswers").show();
 		$("#incorrectAnswers").show();
 		$(".resetButton").show();
+		
 
 	});
 
